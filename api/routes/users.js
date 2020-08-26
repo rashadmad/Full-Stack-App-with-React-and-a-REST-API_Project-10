@@ -4,8 +4,9 @@ const middleware = require('./customMiddleware');
 const auth = require('basic-auth');
 const bcryptjs = require('bcryptjs'); 
 const { check, validationResult } = require('express-validator/check');
+const cors = require('cors')
 
-app.use(cors())
+router.use(cors())
 
 // import models 
 const Users = require('../models').Users;
