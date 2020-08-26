@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const names = ["whale", "squid", "turtle", "coral", "starfish"];
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <ul>{names.map(name => <li key={name}> {name} </li>)}</ul>
     </div>
   );
 }
