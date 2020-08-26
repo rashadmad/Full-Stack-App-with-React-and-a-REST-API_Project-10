@@ -5,6 +5,8 @@ const auth = require('basic-auth');
 const bcryptjs = require('bcryptjs'); 
 const { check, validationResult } = require('express-validator/check');
 
+app.use(cors())
+
 // import models 
 const Users = require('../models').Users;
 
