@@ -1,30 +1,20 @@
 import React from 'react';
-import logo from '../logo.svg';
+
+/*
+Displays the top menu bar for the application 
+and includes buttons for signing in and signing up (if there's not an authenticated user) 
+or the user's first and last name and a button for signing out (if there's an authenticated user).
+*/
 
 export default class Header extends React.PureComponent {
   render() {
     return (
         <div>
-            <head>
-                <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500" rel="stylesheet" type="text/css"></link>
-                <link href="https://fonts.googleapis.com/css?family=Cousine" rel="stylesheet" type="text/css"></link>
-                <link href="../styles/global.css" rel="stylesheet"></link>
-                <title>Courses</title>
-            </head>
-
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-            </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-            </a>
+            <header className="header">
+                <div class="bounds">
+                    <h1 class="header--logo">Courses</h1>
+                    <nav><a class="signup" href="sign-up.html">Sign Up</a><a class="signin" href="sign-in.html">Sign In</a></nav>
+                </div>
             </header>
         </div>
     )

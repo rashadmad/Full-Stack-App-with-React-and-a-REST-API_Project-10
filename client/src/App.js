@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Head from './components/Head.js';
 
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
     super()
     this.state = {
       //communicates to state if a response has failed
-      courses: ["whale", "squid", "turtle", "coral", "starfish"]
+      courses: []
     }
   }
 
@@ -32,6 +33,7 @@ class App extends Component {
     return (
       
       <div className="App">
+        <Head />
         <Header />
         <div>
           <ul>{this.state.courses.map(course => <li key={course.title}> {course.title} </li>)}</ul>
