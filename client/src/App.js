@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Head from './components/Head';
+import Courses from './components/Courses';
 
 class App extends Component {
   constructor() {
@@ -33,9 +34,9 @@ class App extends Component {
       <div className="App">
         <Head />
         <Header />
-        <div>
-          <ul>{this.state.courses.map(course => <li key={course.title}> {course.title} </li>)}</ul>
-        </div>
+        <Courses  
+          courseData={this.state.courses}
+        />
       </div>
     );
   }

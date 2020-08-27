@@ -4,9 +4,12 @@ This component provides the "Courses" screen by retrieving the list of courses f
 Each course needs to link to its respective "Course Detail" screen. This component also renders a link to the "Create Course" screen.
 */
 
-export default () => (
-  <div>
-    <h1>Not Found</h1>
-    <p>Sorry! We couldn't find the page you're looking for.</p>
-  </div>
-);
+export default class Courses extends React.PureComponent {
+    render() {
+        return (
+            <div>
+                <ul>{this.props.courseData.map(course => <li key={course.title}> {course.title} </li>)}</ul>
+            </div>
+        )
+    }
+}
