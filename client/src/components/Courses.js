@@ -7,8 +7,15 @@ Each course needs to link to its respective "Course Detail" screen. This compone
 export default class Courses extends React.PureComponent {
     render() {
         return (
-            <div>
-                <ul>{this.props.courseData.map(course => <li key={course.title}> {course.title} </li>)}</ul>
+            <div class="bounds">
+                {this.props.courseData.map(course => 
+                    <div class="grid-33" key={course.id}> 
+                        <a class="course--module course--link" href="course-detail.html">
+                            <h4 class="course--label">Courses</h4>
+                            <h3 class="course--title">{course.title}</h3>
+                        </a>
+                    </div>
+                )}
             </div>
         )
     }
