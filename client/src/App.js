@@ -44,7 +44,9 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <div>greetings</div>
+        <div>
+          <ul>{this.state.courses.map(course => <li key={course.title}> {course.title} </li>)}</ul>
+        </div>
       </div>
     );
   }
