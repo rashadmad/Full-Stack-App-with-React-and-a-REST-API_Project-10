@@ -34,6 +34,7 @@ class App extends Component {
       <div className="App">
         <Head />
         <Header />
+        <hr></hr>
         <Courses  
           courseData={this.state.courses}
         />
