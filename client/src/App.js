@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Head from './components/Head.js';
-
+import Head from './components/Head';
 
 class App extends Component {
   constructor() {
