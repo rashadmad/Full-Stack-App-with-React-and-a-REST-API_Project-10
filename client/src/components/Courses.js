@@ -2,7 +2,7 @@ import React from 'react';
 import NewCourseButton from './NewCourseButton';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import courseDetail from './courseDetail'
+import CourseDetail from './CourseDetail'
 
 /*
 This component provides the "Courses" screen by retrieving the list of courses from the REST API's /api/courses route and rendering a list of courses. 
@@ -20,7 +20,7 @@ export default class Courses extends React.PureComponent {
                     path="/courseDetail"
                     class="course--module course--link"
                     href="course-detail.html"
-                    component={courseDetail}
+                    component={CourseDetail}
                   >
                     <h4 class="course--label">Courses</h4>
                     <h3 class="course--title">{course.title}</h3>
