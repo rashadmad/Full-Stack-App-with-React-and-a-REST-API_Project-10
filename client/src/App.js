@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/courses', {
+    fetch('http://localhost:5000/api/courses', {
       method: 'GET',
       credentials: 'same-origin',
       redirect: 'follow',
