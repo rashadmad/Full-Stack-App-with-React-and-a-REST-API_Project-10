@@ -12,4 +12,4 @@ export default class Head extends React.PureComponent {
             </head>
         )
     }
-}
+}                                                                               

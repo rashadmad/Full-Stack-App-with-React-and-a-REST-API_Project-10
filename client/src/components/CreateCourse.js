@@ -22,19 +22,6 @@ export default class Courses extends React.PureComponent {
                 </div>
               </div>
               <form>
-                    <div class="grid-66">
-                        <div class="course--header">
-                            <h4 class="course--label">Course</h4>
-                            <div>
-                                <input id="title" name="title" type="text" class="input-title course--title--input" placeholder="Course title..."value="">               </div>
-                            <p>By Joe Smith</p>
-                        </div>
-                        <div class="course--description">
-                            <div><textarea id="description" name="description" class="" placeholder="Course description..."></textarea></div>
-                        </div>
-                    </div>
-                    <div class="grid-100 pad-bottom"><button class="button" type="submit">Create Course</button><button class="button button-secondary" onclick="event.preventDefault(); location.href='index.html';">Cancel</button></div>
-                </div>
               </form>
             </div>
           </div>     

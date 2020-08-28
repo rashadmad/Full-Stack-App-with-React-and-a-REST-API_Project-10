@@ -3,10 +3,6 @@ import './App.css';
 import Header from './components/Header';
 import Head from './components/Head';
 import Courses from './components/Courses';
-import {
-  BrowserRouter,
-  Route
-} from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -41,7 +37,6 @@ class App extends Component {
           <hr></hr>
           <Courses courseData={this.state.courses}/>
         </div>
-      </BrowserRouter>
     );
   }
 }
