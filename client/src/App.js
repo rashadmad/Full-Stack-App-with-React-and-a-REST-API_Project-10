@@ -23,8 +23,8 @@ class App extends Component {
           <hr></hr>
           <Switch>
             <Route exact path="/" component={Courses} />
-            <Route path="/courses/:id" component={CourseDetail} />
             <Route path="/courses/create" component={CreateCourse} />
+            <Route path="/courses/:id" component={CourseDetail} />
           </Switch>
         </div>
       </Router>

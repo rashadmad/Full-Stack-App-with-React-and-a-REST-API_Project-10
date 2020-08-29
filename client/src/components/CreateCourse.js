@@ -17,7 +17,7 @@ export default class CreateCourse extends React.PureComponent {
                             </div>
                         </div>
                         <form>
-                            <div className="grid-25 grid-right">
+                            <div className="grid-66">
                                 <div className="course--stats">
                                     <ul className="course--stats--list">
                                         <li className="course--stats--list--item">
@@ -31,7 +31,7 @@ export default class CreateCourse extends React.PureComponent {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="grid-100 pad-bottom"><button className="button" type="submit">Create Course</button><button className="button button-secondary" onclick="event.preventDefault(); location.href='index.html';">Cancel</button></div>
+                            <div className="grid-100 pad-bottom"><button className="button" type="submit">Create Course</button><button className="button button-secondary" onclick="event.preventDefault(); location.href='/';">Cancel</button></div>
                         </form>
                     </div>
                 </div>
