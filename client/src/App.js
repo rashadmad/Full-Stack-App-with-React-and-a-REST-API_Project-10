@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 //components
 import CourseDetail from './components/CourseDetail'
+import CreateCourse from './components/CreateCourse'
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Courses} />
             <Route path="/courses/:id" component={CourseDetail} />
+            <Route path="/courses/create" component={CreateCourse} />
           </Switch>
         </div>
       </Router>

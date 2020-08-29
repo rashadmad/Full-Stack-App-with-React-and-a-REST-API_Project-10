@@ -4,10 +4,7 @@ export default class Head extends React.PureComponent {
     render() {
       return (
         <div className="grid-33">
-          <a
-            className="course--module course--add--module"
-            href="/courses/create"
-          >
+          <a className="course--module course--add--module" href="/courses/create">
             <h3 className="course--add--title">
               <svg
                 version="1.1"

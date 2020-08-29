@@ -1,5 +1,11 @@
 import React from 'react';
 
+/*
+This component provides the "Course Detail" screen by retrieving the detail for a course from the REST API's /api/courses/:id route and rendering the course. 
+The component also renders a "Delete Course" button that when clicked should send a DELETE request to the REST API's /api/courses/:id route in order to delete a course. 
+This component also renders an "Update Course" button for navigating to the "Update Course" screen.
+*/
+
 export default class CourseDetail extends React.PureComponent {
 
     constructor() {
@@ -8,29 +14,44 @@ export default class CourseDetail extends React.PureComponent {
           selectedCourse: []
         }
       }
-
-      componentDidMount() {
+      deleteThisCourse() {
         fetch(`http://localhost:5000/api/courses/${this.props.match.params.id}`, {
-          method: 'GET',
-          credentials: 'same-origin',
-          redirect: 'follow',
-          agent: null,
-          headers: {
-              "Content-Type": "text/plain",
-              'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
-          },
-          timeout: 5000
+            method: 'DELETE',
+            credentials: 'same-origin',
+            redirect: 'follow',
+            agent: null,
+            headers: {
+                "Content-Type": "text/plain",
+                'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
+            },
+            timeout: 5000
         })
-          .then(res => res.json())
-          .then(selectedCourse => this.setState({selectedCourse}, () => console.log('courses fetched...',selectedCourse)))
       }
 
+    componentDidMount() {
+        fetch(`http://localhost:5000/api/courses/${this.props.match.params.id}`, {
+            method: 'GET',
+            credentials: 'same-origin',
+            redirect: 'follow',
+            agent: null,
+            headers: {
+                "Content-Type": "text/plain",
+                'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
+            },
+            timeout: 5000
+        })
+        .then(res => res.json())
+        .then(selectedCourse => this.setState({selectedCourse}, () => console.log('courses fetched...',selectedCourse)))
+
+    }
+
+      
     render() {
       return (
             <div>
                 <div className="actions--bar">
                     <div className="bounds">
-                        <div className="grid-100"><span><a className="button" href="/">Update Course</a><a className="button" href="/">Delete Course</a></span><a className="button button-secondary" href="/">Return to List</a></div>
+                        <div className="grid-100"><span><a className="button" href="/">Update Course</a><a className="button" href="/">Delete Course</a></span><a className="button button-secondary" href="/" onClick={this.deleteThisCourse}>Return to List</a></div>
                     </div>
                 </div>
                 <div className="bounds course--detail">
