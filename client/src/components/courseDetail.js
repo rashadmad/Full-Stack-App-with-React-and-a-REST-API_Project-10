@@ -5,14 +5,12 @@ export default class CourseDetail extends React.PureComponent {
     constructor() {
         super()
         this.state = {
-          //communicates to state if a response has failed
-          selectedCourseId: 1,
           selectedCourse: []
         }
       }
 
       componentDidMount() {
-        fetch('http://localhost:5000/api/courses/1', {
+        fetch(`http://localhost:5000/api/courses/${this.props.match.params.id}`, {
           method: 'GET',
           credentials: 'same-origin',
           redirect: 'follow',
