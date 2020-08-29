@@ -3,12 +3,12 @@ import React from 'react';
 export default class Head extends React.PureComponent {
     render() {
       return (
-        <div class="grid-33">
+        <div className="grid-33">
           <a
             class="course--module course--add--module"
-            href="create-course.html"
+            href="/courses/create"
           >
-            <h3 class="course--add--title">
+            <h3 className="course--add--title">
               <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"

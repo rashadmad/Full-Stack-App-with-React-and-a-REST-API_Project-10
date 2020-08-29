@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class CourseDetail extends React.PureComponent {
+export default class CreateCourse extends React.PureComponent {
     render() {
       return (
             <div className="bounds course--detail">

@@ -3,6 +3,13 @@ import './App.css';
 import Header from './components/Header';
 import Head from './components/Head';
 import Courses from './components/Courses';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+//components
+import CourseDetail from './components/CourseDetail'
 
 class App extends Component {
   constructor() {
@@ -31,14 +38,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Head />
-        <Header />
-        <hr></hr>
-        <Courses  
-          courseData={this.state.courses}
-        />
-      </div>
+      <Router>
+        <div className="App">
+          <Head />
+          <Header />
+          <hr></hr>
+          <Courses  
+            courseData={this.state.courses}
+          />
+          <Switch>
+            <Route path="/courses/:id" component={CourseDetail} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
