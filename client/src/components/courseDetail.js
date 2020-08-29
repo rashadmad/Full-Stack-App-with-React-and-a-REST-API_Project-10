@@ -1,6 +1,23 @@
 import React from 'react';
 
 export default class CourseDetail extends React.PureComponent {
+
+    componentDidMount() {
+        fetch('http://localhost:5000/api/courses' + '/' + 1, {
+          method: 'GET',
+          credentials: 'same-origin',
+          redirect: 'follow',
+          agent: null,
+          headers: {
+              "Content-Type": "text/plain",
+              'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
+          },
+          timeout: 5000
+        })
+          .then(res => res.json())
+          .then(courses => this.setState({courses}, () => console.log('courses fetched...',courses)))
+    }
+
     render() {
       return (
             <div>
