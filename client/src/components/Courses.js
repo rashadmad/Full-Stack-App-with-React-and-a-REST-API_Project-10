@@ -7,10 +7,35 @@ Each course needs to link to its respective "Course Detail" screen. This compone
 */
 
 export default class Courses extends React.PureComponent {
+
+  constructor() {
+    super()
+    this.state = {
+      //communicates to state if a response has failed
+      courses: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:5000/api/courses', {
+      method: 'GET',
+      credentials: 'same-origin',
+      redirect: 'follow',
+      agent: null,
+      headers: {
+          "Content-Type": "text/plain",
+          'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
+      },
+      timeout: 5000
+    })
+      .then(res => res.json())
+      .then(courses => this.setState({courses}, () => console.log('courses fetched...',courses)))
+  }
+
     render() {
         return (
             <div className="bounds">
-              {this.props.courseData.map((course) => (
+              {this.state.courses.map((course) => (
                 <div class="grid-33" key={course.id}>
                     <a
                       href={"/courses/" + course.id}
