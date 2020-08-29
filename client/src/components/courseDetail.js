@@ -51,7 +51,7 @@ export default class CourseDetail extends React.PureComponent {
             <div>
                 <div className="actions--bar">
                     <div className="bounds">
-                        <div className="grid-100"><span><a className="button" href="/">Update Course</a><a className="button" href="/">Delete Course</a></span><a className="button button-secondary" href="/" onClick={this.deleteThisCourse}>Return to List</a></div>
+                        <div className="grid-100"><span><a className="button" href="/">Update Course</a><a className="button" href="/" onClick={this.deleteThisCourse}>Delete Course</a></span><a className="button button-secondary" href="/">Return to List</a></div>
                     </div>
                 </div>
                 <div className="bounds course--detail">
