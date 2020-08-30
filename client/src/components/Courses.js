@@ -10,13 +10,14 @@ export default class Courses extends React.PureComponent {
 
   constructor() {
     super()
+    this.populateCourses = this.populateCourses.bind(this);
     this.state = {
       //communicates to state if a response has failed
       courses: []
     }
   }
 
-  componentDidMount() {
+  populateCourses() {
     fetch('http://localhost:5000/api/courses', {
       method: 'GET',
       credentials: 'same-origin',
@@ -30,6 +31,10 @@ export default class Courses extends React.PureComponent {
     })
       .then(res => res.json())
       .then(courses => this.setState({courses}, () => console.log('courses fetched...',courses)))
+  }
+
+  componentDidMount() {
+    this.populateCourses()
   }
 
     render() {
