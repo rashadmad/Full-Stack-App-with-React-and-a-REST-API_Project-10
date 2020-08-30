@@ -11,6 +11,7 @@ export default class Courses extends React.PureComponent {
   constructor() {
     super()
     this.populateCourses = this.populateCourses.bind(this);
+    this.emptyCourses = this.emptyCourses.bind(this);
     this.state = {
       //communicates to state if a response has failed
       courses: []
@@ -33,7 +34,18 @@ export default class Courses extends React.PureComponent {
       .then(courses => this.setState({courses}, () => console.log('courses fetched...',courses)))
   }
 
+  emptyCourses() {
+    this.setState({
+      courses: []
+    });
+  }
+
   componentDidMount() {
+    this.populateCourses()
+  }
+
+  componentWillUnmount() {
+    this.emptyCourses()
     this.populateCourses()
   }
 
