@@ -11,6 +11,7 @@ import {
 //components
 import CourseDetail from './components/CourseDetail'
 import CreateCourse from './components/CreateCourse'
+import UpdateCourse from './components/UpdateCourse'
 
 class App extends Component {
 
@@ -24,8 +25,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Courses} />
             <Route path="/courses/create" component={CreateCourse} />
+            <Route path="/courses/:id/update" component={UpdateCourse} />
             <Route path="/courses/:id" component={CourseDetail} />
-            <Route path="/courses/:id/update" component={CourseDetail} />
           </Switch>
         </div>
       </Router>

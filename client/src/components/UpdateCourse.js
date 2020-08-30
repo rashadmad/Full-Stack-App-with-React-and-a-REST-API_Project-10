@@ -7,6 +7,23 @@ import React from 'react';
 */
 
 export default class UpdateCourse extends React.PureComponent {
+
+    populateThisCourse() {
+        fetch(`http://localhost:5000/api/courses/${this.courseId}`, {
+          method: 'GET',
+          credentials: 'same-origin',
+          redirect: 'follow',
+          agent: null,
+          headers: {
+              "Content-Type": "text/plain",
+              'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
+          },
+          timeout: 5000
+        })
+          .then(res => res.json())
+          .then(selectedCourse => this.setState({selectedCourse}, () => console.log('courses fetched...',selectedCourse)))
+      }
+
     render() {
         return (
               <div className="bounds course--detail">

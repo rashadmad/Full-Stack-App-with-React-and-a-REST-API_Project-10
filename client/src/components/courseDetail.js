@@ -59,7 +59,7 @@ export default class CourseDetail extends React.PureComponent {
           <div className="bounds">
             <div className="grid-100">
               <span>
-                <a className="button" href="/">
+                <a className="button" href={`/courses/${this.courseId}/update`}>
                   Update Course
                 </a>
                 <a className="button" href="/" onClick={this.deleteThisCourse}>
