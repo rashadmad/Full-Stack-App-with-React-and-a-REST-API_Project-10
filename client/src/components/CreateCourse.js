@@ -58,6 +58,13 @@ export default class CreateCourse extends React.PureComponent {
         "Content-Type": "text/plain",
         Authorization: "Basic " + btoa("gino@coolcats.com:password"),
       },
+      body: JSON.stringify({ 
+        id: this.state.id,
+        title: this.state.title,
+        description: this.state.description,
+        estimatedTime: this.state.estimatedTime,
+        materialsNeeded: this.state.materialsNeeded
+      }),
       timeout: 5000,
     })
       .then((res) => res.json())
