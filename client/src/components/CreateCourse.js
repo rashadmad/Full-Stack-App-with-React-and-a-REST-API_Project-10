@@ -25,7 +25,8 @@ import React from "react";
 export default class CreateCourse extends React.PureComponent {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
+        id: "",
         title: "",
         description: "",
         estimatedTime: "",
@@ -58,7 +59,7 @@ export default class CreateCourse extends React.PureComponent {
         Authorization: "Basic " + btoa("gino@coolcats.com:password"),
       },
       body: JSON.stringify({ 
-        //TODO: add a user to the id here
+        id: this.state.id,
         title: this.state.title,
         description: this.state.description,
         estimatedTime: this.state.estimatedTime,
