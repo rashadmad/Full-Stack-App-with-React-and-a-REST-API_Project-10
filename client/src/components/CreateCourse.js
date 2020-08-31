@@ -26,26 +26,29 @@ export default class CreateCourse extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-        courseTitle: "",
-        courseDescription: "",
-        courseEstimatedTime: "",
-        courseMaterialsNeeded: ""
+        id: "",
+        title: "",
+        description: "",
+        estimatedTime: "",
+        materialsNeeded: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.createCourse = this.createCourse.bind(this);
   }
 
-  handleChange(event) {
-    event.persist();
-    this.setState({courseTitle: event.target.courseTitle});
+  handleChange = (event) => {
+    const inputFieldName = event.target.name;
+    this.setState({
+        [inputFieldName]: event.target.value
+    });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
   }
 
-  createCourse() {
+  createCourse = () => {
     fetch(`http://localhost:5000/api/courses/`, { 
       method: "PUT",
       credentials: "same-origin",
@@ -88,7 +91,7 @@ export default class CreateCourse extends React.PureComponent {
                         <p>By Joe Smith</p>
                     </div>
                     <div class="course--description">
-                        <div><textarea id="description" name="description" class="" placeholder="Course description..." value={this.state.courseDescription}></textarea></div>
+                        <div><textarea id="description" name="description" class="" placeholder="Course description..." value={this.state.courseDescription} onChange={this.handleChange}></textarea></div>
                     </div>
                 </div>
                 <div class="grid-25 grid-right">
@@ -96,11 +99,11 @@ export default class CreateCourse extends React.PureComponent {
                         <ul class="course--stats--list">
                         <li class="course--stats--list--item">
                             <h4>Estimated Time</h4>
-                            <div><input id="estimatedTime" name="estimatedTime" type="text" className="course--time--input" placeholder="Hours" value={this.state.courseEstimatedTime}></input></div>
+                            <div><input id="estimatedTime" name="estimatedTime" type="text" className="course--time--input" placeholder="Hours" value={this.state.courseEstimatedTime} onChange={this.handleChange}></input></div>
                         </li>
                         <li class="course--stats--list--item">
                             <h4>Materials Needed</h4>
-                            <div><textarea id="materialsNeeded" name="materialsNeeded" className="" placeholder="List materials..." value={this.state.courseMaterialsNeeded}></textarea></div>
+                            <div><textarea id="materialsNeeded" name="materialsNeeded" className="" placeholder="List materials..." value={this.state.courseMaterialsNeeded} onChange={this.handleChange}></textarea></div>
                         </li>
                         </ul>
                     </div>
