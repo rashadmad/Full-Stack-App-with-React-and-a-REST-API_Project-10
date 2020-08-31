@@ -53,7 +53,7 @@ export default class Courses extends React.PureComponent {
         return (
             <div className="bounds">
               {this.state.courses.map((course) => (
-                <div class="grid-33" key={course.id}>
+                <div className="grid-33" key={course.id}>
                     <a
                       href={"/courses/" + course.id}
                       className="course--module course--link"
