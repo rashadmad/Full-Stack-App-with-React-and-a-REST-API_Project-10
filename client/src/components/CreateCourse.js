@@ -36,9 +36,12 @@ export default class CreateCourse extends React.PureComponent {
     this.createCourse = this.createCourse.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = event => {
     event.persist();
-    this.setState({courseTitle: event.target.courseTitle});
+    let value = event.target.value;
+    this.setState(prevState => ({
+        courseTitle: { ...prevState.courseTitle,  [event.target.name]: value }
+    }))
   }
 
   handleSubmit(event) {
