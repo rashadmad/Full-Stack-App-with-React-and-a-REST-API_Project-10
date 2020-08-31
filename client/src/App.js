@@ -18,6 +18,20 @@ import NotFound from './components/NotFound'
 
 class App extends Component {
 
+  constructor() {
+    super();
+    this.getUser = this.getUser.bind(this);
+    this.getUser = this.createUser.bind(this);
+  }
+
+  async getUser(username, password) {
+    console.log(username, password)
+  }
+
+  async createUser(user) {
+    console.log(user)
+  }
+
   render() {
     return (
       <Router>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header';
 
 export default class NotFound extends React.PureComponent {
     render() {
