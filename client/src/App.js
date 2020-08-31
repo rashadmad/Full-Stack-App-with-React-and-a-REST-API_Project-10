@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Head from './components/Head';
-import Courses from './components/Courses';
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom';
 //components
+import Header from './components/Header';
+import Courses from './components/Courses';
 import CourseDetail from './components/CourseDetail'
 import CreateCourse from './components/CreateCourse'
 import UpdateCourse from './components/UpdateCourse'
@@ -22,7 +21,6 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Head />
           <Header />
           <hr></hr>
           <Switch>
