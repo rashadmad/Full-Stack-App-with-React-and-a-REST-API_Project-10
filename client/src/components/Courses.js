@@ -31,7 +31,7 @@ export default class Courses extends React.PureComponent {
       timeout: 5000
     })
       .then(res => res.json())
-      .then(courses => this.setState({courses}, () => console.log('courses fetched...',courses)))
+      .then(courses => this.setState({courses}))
   }
 
   emptyCourses() {
