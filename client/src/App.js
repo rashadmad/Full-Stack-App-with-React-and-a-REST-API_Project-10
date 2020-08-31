@@ -17,6 +17,35 @@ import UserSignOut from './components/UserSignOut'
 
 class App extends Component {
 
+  async getUser(username, password) {
+    const response = await this.api(`/users`, 'GET', null, true, { username, password });
+    if (response.status === 200) {
+      return response.json().then(data => data);
+    }
+    else if (response.status === 401) {
+      return null;
+    }
+    else {
+      throw new Error();
+    }
+  }
+  
+  async createUser(user) {
+    const response = await this.api('/users', 'POST', user);
+    if (response.status === 201) {
+      return [];
+    }
+    else if (response.status === 400) {
+      return response.json().then(data => {
+        return data.errors;
+      });
+    }
+    else {
+      throw new Error();
+    }
+  }
+}
+
   render() {
     return (
       <Router>
@@ -31,6 +60,7 @@ class App extends Component {
             <Route path="/courses/create" component={CreateCourse} />
             <Route path="/courses/:id/update" component={UpdateCourse} />
             <Route path="/courses/:id" component={CourseDetail} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>
