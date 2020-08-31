@@ -25,30 +25,29 @@ import React from "react";
 export default class CreateCourse extends React.PureComponent {
   constructor() {
     super();
-    this.state = {
-        courseTitle: "",
-        courseDescription: "",
-        courseEstimatedTime: "",
-        courseMaterialsNeeded: ""
+    this.state = { 
+        title: "",
+        description: "",
+        estimatedTime: "",
+        materialsNeeded: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.createCourse = this.createCourse.bind(this);
   }
 
-  handleChange = event => {
-    event.persist();
-    let value = event.target.value;
-    this.setState(prevState => ({
-        courseTitle: { ...prevState.courseTitle,  [event.target.name]: value }
-    }))
+  handleChange = (event) => {
+    const inputFieldName = event.target.name;
+    this.setState({
+        [inputFieldName]: event.target.value
+    });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
   }
 
-  createCourse() {
+  createCourse = () => {
     fetch(`http://localhost:5000/api/courses/`, { 
       method: "PUT",
       credentials: "same-origin",
@@ -58,6 +57,13 @@ export default class CreateCourse extends React.PureComponent {
         "Content-Type": "text/plain",
         Authorization: "Basic " + btoa("gino@coolcats.com:password"),
       },
+      body: JSON.stringify({ 
+        //TODO: add a user to the id here
+        title: this.state.title,
+        description: this.state.description,
+        estimatedTime: this.state.estimatedTime,
+        materialsNeeded: this.state.materialsNeeded
+      }),
       timeout: 5000,
     })
       .then((res) => res.json())
@@ -84,31 +90,31 @@ export default class CreateCourse extends React.PureComponent {
               </div>
             </div>
             <form onSubmit={this.handleSubmit}>
-                <div class="grid-66">
-                    <div class="course--header">
-                        <h4 class="course--label">Course</h4>
-                        <div><input id="title" name="title" type="text" class="input-title course--title--input" placeholder="Course title..." value={this.state.courseTitle} onChange={this.handleChange}></input></div>
+                <div className="grid-66">
+                    <div className="course--header">
+                        <h4 className="course--label">Course</h4>
+                        <div><input id="title" name="title" type="text" className="input-title course--title--input" placeholder="Course title..." onChange={this.handleChange}></input></div> 
                         <p>By Joe Smith</p>
                     </div>
-                    <div class="course--description">
-                        <div><textarea id="description" name="description" class="" placeholder="Course description..." value={this.state.courseDescription}></textarea></div>
+                    <div className="course--description">
+                        <div><textarea id="description" name="description" className="" placeholder="Course description..." onChange={this.handleChange}></textarea></div>
                     </div>
                 </div>
-                <div class="grid-25 grid-right">
-                    <div class="course--stats">
-                        <ul class="course--stats--list">
-                        <li class="course--stats--list--item">
+                <div className="grid-25 grid-right">
+                    <div className="course--stats">
+                        <ul className="course--stats--list">
+                        <li className="course--stats--list--item">
                             <h4>Estimated Time</h4>
-                            <div><input id="estimatedTime" name="estimatedTime" type="text" className="course--time--input" placeholder="Hours" value={this.state.courseEstimatedTime}></input></div>
+                            <div><input id="estimatedTime" name="estimatedTime" type="text" className="course--time--input" placeholder="Hours" onChange={this.handleChange}></input></div>
                         </li>
-                        <li class="course--stats--list--item">
+                        <li className="course--stats--list--item">
                             <h4>Materials Needed</h4>
-                            <div><textarea id="materialsNeeded" name="materialsNeeded" className="" placeholder="List materials..." value={this.state.courseMaterialsNeeded}></textarea></div>
+                            <div><textarea id="materialsNeeded" name="materialsNeeded" className="" placeholder="List materials..." onChange={this.handleChange}></textarea></div>
                         </li>
                         </ul>
                     </div>
                 </div>
-                <div class="grid-100 pad-bottom"><button className="button" type="submit">Create Course</button><button className="button button-secondary" onclick="event.preventDefault(); location.href='index.html';">Cancel</button></div>
+                <div className="grid-100 pad-bottom"><button className="button" type="submit">Create Course</button><button className="button button-secondary" onClick="event.preventDefault(); location.href='index.html';">Cancel</button></div>
             </form>
           </div>
         </div>
