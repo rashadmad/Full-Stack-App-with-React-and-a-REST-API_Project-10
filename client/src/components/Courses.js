@@ -1,5 +1,6 @@
 import React from 'react';
-import NewCourseButton from './NewCourseButton';
+//import NewCourseButton from './NewCourseButton';
+import { Consumer } from './Context';
 
 /*
 This component provides the "Courses" screen by retrieving the list of courses from the REST API's /api/courses route and rendering a list of courses. 
@@ -51,20 +52,25 @@ export default class Courses extends React.PureComponent {
 
     render() {
         return (
-            <div className="bounds">
-              {this.state.courses.map((course) => (
-                <div className="grid-33" key={course.id}>
-                    <a
-                      href={"/courses/" + course.id}
-                      className="course--module course--link"
-                    >
-                    <h4 className="course--label">Courses</h4>
-                    <h3 className="course--title">{course.title}</h3>
-                  </a>
-                </div>
-              ))}
-              <NewCourseButton />
-            </div>
+          <Consumer>
+            { ({ foods }) => {
+              console.log(foods)
+            }}
+          </Consumer>
+            // <div className="bounds">
+            //   {this.state.courses.map((course) => (
+            //     <div className="grid-33" key={course.id}>
+            //         <a
+            //           href={"/courses/" + course.id}
+            //           className="course--module course--link"
+            //         >
+            //         <h4 className="course--label">Courses</h4>
+            //         <h3 className="course--title">{course.title}</h3>
+            //       </a>
+            //     </div>
+            //   ))}
+            //   <NewCourseButton />
+            // </div>
         );
     }
 }
