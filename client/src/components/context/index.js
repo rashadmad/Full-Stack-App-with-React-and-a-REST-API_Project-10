@@ -3,10 +3,18 @@ import React, { useState } from 'react'
 export const applicationContext = React.createContext();
 
 export const Provider = (props) => {
-    const [ foods ] = useState("apple")
+       
+    const [ courses,changeCourses ] = useState([]);
+
+    populateCourses=()=>{
+        changeCourses( prevState =>{
+            prevState.push("Apple");
+        })
+    }
+
     return (
         <applicationContext.Provider value={{
-            foods
+            courses
             }}>
             { props.children }
         </applicationContext.Provider>

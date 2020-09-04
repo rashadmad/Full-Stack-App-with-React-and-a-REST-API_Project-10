@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 //import NewCourseButton from './NewCourseButton';
 import { applicationContext } from './Context';
 
@@ -8,7 +8,7 @@ Each course needs to link to its respective "Course Detail" screen. This compone
 */
 
 const Courses = () => {
-  const { foods } = useContext(applicationContext);
+  const { courses } = useContext(applicationContext);
   // constructor() {
   //   super()
   //   this.populateCourses = this.populateCourses.bind(this);
@@ -32,7 +32,17 @@ const Courses = () => {
   //     timeout: 5000
   //   })
   //     .then(res => res.json())
-  //     .then(courses => this.setState({courses}))
+  //     .then(courses => this.setState({ courses } ))
+  // }
+
+  useEffect(() => {
+
+    changeCourses({ courses.push("gyms") })
+     console.log({courses}) 
+  });
+
+  // populateCourses() {
+  //   setScore(courses = "newCourse")
   // }
 
   // emptyCourses() {
@@ -51,7 +61,7 @@ const Courses = () => {
   // }
 
     return (
-      <h1>{ foods }</h1>
+      <h1>{ courses }</h1>
         // <div className="bounds">
         //   {this.state.courses.map((course) => (
         //     <div className="grid-33" key={course.id}>
