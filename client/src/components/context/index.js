@@ -10,7 +10,6 @@ export const Provider = (props) => {
         changeCourses( prevState =>{
             const newCourseList = [ ...prevState ]
             newCourseList.push("apple");
-            return newCourseLists
         })
     }
 
