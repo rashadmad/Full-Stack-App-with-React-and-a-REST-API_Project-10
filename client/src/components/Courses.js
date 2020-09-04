@@ -8,23 +8,12 @@ Each course needs to link to its respective "Course Detail" screen. This compone
 */
 
 const Courses = () => {
-  const { courses } = useContext(ApplicationContext);
+  const { courses, actions } = useContext(ApplicationContext);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/courses', {
-      method: 'GET',
-      credentials: 'same-origin',
-      redirect: 'follow',
-      agent: null,
-      headers: {
-          "Content-Type": "text/plain",
-          'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
-      },
-      timeout: 5000 
-      })
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(error => console.log('Error fetching and parsing data', error))
+
+    actions.populateCourses();
+
   }, []);
 
   // emptyCourses() {
