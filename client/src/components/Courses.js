@@ -8,42 +8,24 @@ Each course needs to link to its respective "Course Detail" screen. This compone
 */
 
 const Courses = () => {
-  const { courses, actions } = useContext(ApplicationContext);
-  // constructor() {
-  //   super()
-  //   this.populateCourses = this.populateCourses.bind(this);
-  //   this.emptyCourses = this.emptyCourses.bind(this);
-  //   this.state = {
-  //     //communicates to state if a response has failed
-  //     courses: []
-  //   }
-  // }
-
-  // populateCourses() {
-  //   fetch('http://localhost:5000/api/courses', {
-  //     method: 'GET',
-  //     credentials: 'same-origin',
-  //     redirect: 'follow',
-  //     agent: null,
-  //     headers: {
-  //         "Content-Type": "text/plain",
-  //         'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
-  //     },
-  //     timeout: 5000
-  //   })
-  //     .then(res => res.json())
-  //     .then(courses => this.setState({ courses } ))
-  // }
+  const { courses } = useContext(ApplicationContext);
 
   useEffect(() => {
-
-    actions.populateCourses()
-    console.log({courses})
-  });
-
-  // populateCourses() {
-  //   setScore(courses = "newCourse")
-  // }
+    fetch('http://localhost:5000/api/courses', {
+      method: 'GET',
+      credentials: 'same-origin',
+      redirect: 'follow',
+      agent: null,
+      headers: {
+          "Content-Type": "text/plain",
+          'Authorization': 'Basic ' + btoa('gino@coolcats.com:password'),
+      },
+      timeout: 5000 
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(error => console.log('Error fetching and parsing data', error))
+  }, []);
 
   // emptyCourses() {
   //   this.setState({
