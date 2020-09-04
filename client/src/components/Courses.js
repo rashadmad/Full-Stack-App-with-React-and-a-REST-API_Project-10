@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect} from 'react';
 //import NewCourseButton from './NewCourseButton';
-import { applicationContext } from './Context';
+import { ApplicationContext } from './Context';
 
 /*
 This component provides the "Courses" screen by retrieving the list of courses from the REST API's /api/courses route and rendering a list of courses. 
@@ -8,7 +8,7 @@ Each course needs to link to its respective "Course Detail" screen. This compone
 */
 
 const Courses = () => {
-  const { courses } = useContext(applicationContext);
+  const { courses, actions } = useContext(ApplicationContext);
   // constructor() {
   //   super()
   //   this.populateCourses = this.populateCourses.bind(this);
@@ -37,8 +37,8 @@ const Courses = () => {
 
   useEffect(() => {
 
-    changeCourses({ courses.push("gyms") })
-     console.log({courses}) 
+    actions.populateCourses()
+    console.log({courses})
   });
 
   // populateCourses() {

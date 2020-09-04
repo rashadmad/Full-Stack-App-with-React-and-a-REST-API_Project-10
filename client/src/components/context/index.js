@@ -1,22 +1,27 @@
 import React, { useState } from 'react'
 
-export const applicationContext = React.createContext();
+export const ApplicationContext = React.createContext();
 
 export const Provider = (props) => {
        
     const [ courses,changeCourses ] = useState([]);
 
-    populateCourses=()=>{
+    const handleCoursesChange=()=>{
         changeCourses( prevState =>{
-            prevState.push("Apple");
+            const newCourseList = [ ...prevState ]
+            newCourseList.push("apple");
+            return newCourseLists
         })
     }
 
     return (
-        <applicationContext.Provider value={{
-            courses
+        <ApplicationContext.Provider value={{
+            courses,
+            actions: {
+                populateCourses: handleCoursesChange
+              }
             }}>
             { props.children }
-        </applicationContext.Provider>
+        </ApplicationContext.Provider>
     )
 }  
